@@ -55,7 +55,7 @@ while True:
             try:
                 desconto = produto.find_element(By.CLASS_NAME, "rounded-8").text.strip()
             except:
-                desconto = "não há desconto"
+                desconto = "0%"
             try:
                 produto.find_element(By.CLASS_NAME, "bg-success-500").text.strip()
                 frete = "Grátis"
@@ -64,7 +64,7 @@ while True:
             try:
                 avaliacoes = produto.find_element(By.CLASS_NAME, "pt-4").text.strip()
             except:
-                avaliacoes = "não há avaliações"
+                avaliacoes = 0
             try:
                 produto.find_element(By.CSS_SELECTOR, "div[aria-label='Classificação: 5 de 5 estrelas.']").text.strip()
                 estrelas = 5
@@ -90,7 +90,7 @@ while True:
                                 estrelas = 1
                                 dict_produtos["estrelas"].append(estrelas)
                             except:
-                                estrelas = "Não há estrelas"
+                                estrelas = 0
                                 dict_produtos["estrelas"].append(estrelas)
 
             print(f"{nome} / {preco} / {parcela} / {desconto} / {frete} / {avaliacoes} / {estrelas}")
